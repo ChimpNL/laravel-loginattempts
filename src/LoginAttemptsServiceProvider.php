@@ -9,7 +9,7 @@ class LoginAttemptsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        //
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     public function register()
@@ -17,5 +17,11 @@ class LoginAttemptsServiceProvider extends ServiceProvider
         $this->app->bind('login-attempts', function () {
             return new LoginAttempts();
         });
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ClearLoginAttempts::class,
+            ]);
+        }
     }
 }
