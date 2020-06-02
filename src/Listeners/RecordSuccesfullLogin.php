@@ -6,12 +6,10 @@ use App\Events\AuthSucceeded;
 use App\Models\LoginAttempt;
 use App\Models\User;
 use App\Notifications\LoginFromNewIpDetected;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Notification;
 use Torann\GeoIP\Facades\GeoIP;
 
-class RecordSuccesfullLoginAttempt
+class RecordSuccesfullLogin
 {
     /**
      * Create the event listener.
@@ -26,12 +24,13 @@ class RecordSuccesfullLoginAttempt
     /**
      * Handle the event.
      *
-     * @param  AuthSucceeded  $event
+     * @param AuthSucceeded $event
+     *
      * @return void
      */
     public function handle(AuthSucceeded $event)
     {
-        if (! config('login-attempts.record_successful_login')) {
+        if (!config('login-attempts.record_successful_login')) {
             return;
         }
 
@@ -40,7 +39,7 @@ class RecordSuccesfullLoginAttempt
             ->get();
 
         if ($loginAttempts->isEmpty()) {
-            $users = User::whereHas('roles', function($q) {
+            $users = User::whereHas('roles', function ($q) {
                 $q->where('name', 'owner');
             })->get();
 
@@ -49,10 +48,10 @@ class RecordSuccesfullLoginAttempt
         }
 
         LoginAttempt::create([
-            'event' => 'succeeded',
+            'event'   => 'succeeded',
             'user_id' => $event->user->id,
-            'email' => $event->user->email,
-            'ip' => request()->ip()
+            'email'   => $event->user->email,
+            'ip'      => request()->ip(),
         ]);
     }
 }
