@@ -31,10 +31,10 @@ class RecordFailedLogin
         }
 
         LoginAttempt::create([
-            'event'   => 'failed',
+            'event' => 'failed',
             'user_id' => null,
-            'email'   => $event->user->email,
-            'ip'      => request()->ip(),
+            'email' => $event->email,
+            'ip' => request()->ip(),
         ]);
     }
 }

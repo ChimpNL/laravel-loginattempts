@@ -14,10 +14,6 @@ class LoginAttemptsServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('login-attempts', function () {
-            return new LoginAttempts();
-        });
-
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ClearLoginAttempts::class,

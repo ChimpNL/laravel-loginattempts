@@ -48,10 +48,10 @@ class RecordSuccesfullLogin
         }
 
         LoginAttempt::create([
-            'event'   => 'succeeded',
+            'event' => 'succeeded',
             'user_id' => $event->user->id,
-            'email'   => $event->user->email,
-            'ip'      => request()->ip(),
+            'email' => $event->user->email,
+            'ip' => request()->ip(),
         ]);
     }
 }
