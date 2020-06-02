@@ -26,7 +26,7 @@ class RecordFailedLogin
      */
     public function handle(AuthFailed $event)
     {
-        if (!config('login-attempts.record_failed_login')) {
+        if (! config('login-attempts.record_failed_login')) {
             return;
         }
 
