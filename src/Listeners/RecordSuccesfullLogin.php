@@ -30,7 +30,7 @@ class RecordSuccesfullLogin
      */
     public function handle(AuthSucceeded $event)
     {
-        if (!config('login-attempts.record_successful_login')) {
+        if (! config('login-attempts.record_successful_login')) {
             return;
         }
 
