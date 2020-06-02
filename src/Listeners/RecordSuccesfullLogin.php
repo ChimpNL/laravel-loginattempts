@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Listeners;
+namespace LamaLama\LoginAttempts\Listeners;
 
-use App\Events\AuthSucceeded;
-use App\Models\LoginAttempt;
 use App\Models\User;
-use App\Notifications\LoginFromNewIpDetected;
+use LamaLama\LoginAttempts\Events\AuthSucceeded;
+use LamaLama\LoginAttempts\Models\LoginAttempt;
+use LamaLama\LoginAttempts\Notifications\LoginFromNewIpDetected;
 use Notification;
 use Torann\GeoIP\Facades\GeoIP;
 

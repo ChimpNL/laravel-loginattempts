@@ -7,9 +7,9 @@ return [
     'record_failed_login' => false,
 
     /*
-     * Record successfull login
+     * Record successful login
      */
-    'record_successfull_login' => true,
+    'record_successful_login' => true,
 
     /*
      * Send notification emails to the following email addresses
