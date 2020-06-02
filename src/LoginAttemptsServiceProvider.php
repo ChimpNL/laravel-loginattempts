@@ -1,15 +1,16 @@
 <?php
 
-namespace Chimp\LoginAttempts;
+namespace LamaLama\LoginAttempts;
 
 use Illuminate\Support\ServiceProvider;
-use Chimp\LoginAttempts\LoginAttempts;
+use LamaLama\LoginAttempts\LoginAttempts;
+use LamaLama\LoginAttempts\Console\Commands\ClearLoginAttempts;
 
 class LoginAttemptsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->registerPublishables();
     }
 
     public function register()
@@ -22,6 +23,19 @@ class LoginAttemptsServiceProvider extends ServiceProvider
             $this->commands([
                 ClearLoginAttempts::class,
             ]);
+        }
+    }
+
+    protected function registerPublishables(): void
+    {
+        $this->publishes([
+            __DIR__.'/../config/login-attempts.php' => config_path('login-attempts.php'),
+        ], 'config');
+
+        if (! class_exists('CreateWishlistTable')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_login_attempts_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_login_attempts_table.php'),
+            ], 'migrations');
         }
     }
 }

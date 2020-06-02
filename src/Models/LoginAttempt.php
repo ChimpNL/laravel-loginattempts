@@ -1,6 +1,6 @@
 <?php
 
-namespace Chimp\LoginAttempts\Models;
+namespace LamaLama\LoginAttempts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

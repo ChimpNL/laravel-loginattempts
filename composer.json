@@ -1,31 +1,43 @@
 {
-  "name": "chimp/laravel-loginattempts",
+  "name": "lamalama/laravel-login-attempts",
   "description": "Register unique login attempts and get notified of suspicious attempts",
   "keywords": ["laravel", "auth", "authorization", "login"],
   "type": "library",
-  "homepage": "https://github.com/ChimpNL/laravel-loginattempts",
+  "homepage": "https://github.com/lamalamaNL/laravel-login-attempts",
   "license": "MIT",
   "authors": [
     {
-      "name": "Chimp BV",
-      "email": "info@chimp.nl"
+      "name": "Lama Lama BV",
+      "email": "info@lamalama.nl"
+    },
+    {
+      "name": "Mark de Vries",
+      "email": "mark@lamalama.nl"
     }
   ],
   "require": {
-    "torann/geoip": "^1.0"
+    "torann/geoip": "^1.2"
   },
   "autoload": {
     "psr-4": {
-      "Chimp\\LaravelLoginAttempts\\": "src/"
+      "LamaLama\\LoginAttempts\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Chimp\\LaravelLoginAttempts\\Tests\\": "tests"
+      "LamaLama\\LoginAttempts\\Tests\\": "tests"
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.1",
-    "orchestra/testbench": "^3.5"
+  },
+  "extra": {
+    "laravel": {
+        "providers": [
+            "LamaLama\\LoginAttempts\\LoginAttemptsServiceProvider"
+        ],
+        "aliases": {
+            "LoginAttempts": "LamaLama\\LoginAttempts\\Facades\\LoginAttempts"
+        }
+    }
   }
 }

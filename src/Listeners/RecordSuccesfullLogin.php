@@ -31,6 +31,10 @@ class RecordSuccesfullLoginAttempt
      */
     public function handle(AuthSucceeded $event)
     {
+        if (! config('login-attempts.record_successful_login')) {
+            return;
+        }
+
         $loginAttempts = LoginAttempt::where('email', $event->user->email)
             ->where('ip', request()->ip())
             ->get();

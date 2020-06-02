@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace LamaLama\LoginAttempts\Console\Commands;
 
 use Skata\Kernel\Models\Orders\Shipment;
 use Illuminate\Console\Command;

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Listeners;
+namespace LamaLama\LoginAttempts\Listeners;
 
-use App\Events\AuthFailed;
-use App\Models\LoginAttempt;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use LamaLama\LoginAttempts\Events\AuthFailed;
+use LamaLama\LoginAttempts\Models\LoginAttempt;
 
 class RecordFailedLoginAttempt
 {
@@ -27,6 +27,10 @@ class RecordFailedLoginAttempt
      */
     public function handle(AuthFailed $event)
     {
+        if (! config('login-attempts.record_failed_login')) {
+            return;
+        }
+
         LoginAttempt::create([
             'event' => 'failed',
             'user_id' => null,

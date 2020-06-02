@@ -1,6 +1,6 @@
 <?php
 
-namespace Chimp\LoginAttempts;
+namespace LamaLama\LoginAttempts;
 
 class LoginAttempts
 {
