@@ -2,12 +2,10 @@
 
 namespace LamaLama\LoginAttempts\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use LamaLama\LoginAttempts\Events\AuthFailed;
 use LamaLama\LoginAttempts\Models\LoginAttempt;
 
-class RecordFailedLoginAttempt
+class RecordFailedLogin
 {
     /**
      * Create the event listener.
@@ -22,20 +20,21 @@ class RecordFailedLoginAttempt
     /**
      * Handle the event.
      *
-     * @param  AuthFailed  $event
+     * @param AuthFailed $event
+     *
      * @return void
      */
     public function handle(AuthFailed $event)
     {
-        if (! config('login-attempts.record_failed_login')) {
+        if (!config('login-attempts.record_failed_login')) {
             return;
         }
 
         LoginAttempt::create([
-            'event' => 'failed',
+            'event'   => 'failed',
             'user_id' => null,
-            'email' => $event->user->email,
-            'ip' => request()->ip()
+            'email'   => $event->user->email,
+            'ip'      => request()->ip(),
         ]);
     }
 }
