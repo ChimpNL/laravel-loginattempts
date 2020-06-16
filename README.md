@@ -77,6 +77,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
+- [Lama Lama](https://github.com/lamalamaNL)
 - [Mark de Vries](https://github.com/lamalamaMark)
 
 ## License
