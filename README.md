@@ -55,6 +55,7 @@ LOGIN_ATTEMPTS_EMAIL="laravel@lamalama.nl, laravel@lamalama.com"
 ```
 
 ### Commands
+
 Clear all login attempts in the database
 ```bash
 php artisan login-attempts:clear
