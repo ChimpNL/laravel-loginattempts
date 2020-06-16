@@ -18,7 +18,7 @@ class ClearSucceededLoginAttempts extends Command
      *
      * @var string
      */
-    protected $description = 'Clear all Succeeded login attempts in the database';
+    protected $description = 'Clear all succeeded login attempts in the database';
 
     /**
      * Create a new command instance.
