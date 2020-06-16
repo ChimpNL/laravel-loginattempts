@@ -3,8 +3,8 @@
 namespace LamaLama\LoginAttempts;
 
 use Illuminate\Support\ServiceProvider;
-use LamaLama\LoginAttempts\Console\Commands\ClearLoginAttempts;
 use LamaLama\LoginAttempts\Console\Commands\ClearFailedLoginAttempts;
+use LamaLama\LoginAttempts\Console\Commands\ClearLoginAttempts;
 use LamaLama\LoginAttempts\Console\Commands\ClearSucceededLoginAttempts;
 
 class LoginAttemptsServiceProvider extends ServiceProvider
