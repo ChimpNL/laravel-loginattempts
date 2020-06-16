@@ -7,7 +7,7 @@
 
 > :warning: **This package is in a preliminary development phase and not stable**: Do not use in production!
 
-Register unique login attempts and get notified of suspicious attempts.
+Register unique login attempts and get notified of suspicious attempts via email.
 
 ## Install
 
