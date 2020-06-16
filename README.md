@@ -61,9 +61,9 @@ Clear all login attempts in the database
 php artisan login-attempts:clear
 ```
 
-Clear all login attempts in the database
+Clear all failed login attempts in the database
 ```bash
-php artisan login-attempts:clear
+php artisan login-attempts:clear-failed
 ```
 
 Clear all login succeeded attempts in the database
