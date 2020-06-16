@@ -10,7 +10,7 @@ use LamaLama\LoginAttempts\Notifications\LoginFromNewIpDetected;
 use Notification;
 use Torann\GeoIP\Facades\GeoIP;
 
-class UserEventSubscriber
+class AuthEventSubscriber
 {
     /**
      * Handle recordSuccesfullLogin.
