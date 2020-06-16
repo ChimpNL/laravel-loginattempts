@@ -35,7 +35,7 @@ php artisan vendor:publish --provider="LamaLama\LoginAttempts\LoginAttemptsServi
 
 ## Use
 
-Add the UserEventSubscriber to the ```subscribe()``` method in the ```app/Providers/EventServiceProvider.php``` file.
+Add the ```LamaLama\LoginAttempts\Listeners\AuthEventSubscriber``` to the ```$subscribe``` variable in the ```app/Providers/EventServiceProvider.php``` file.
 
 ```php
 /**
@@ -44,7 +44,7 @@ Add the UserEventSubscriber to the ```subscribe()``` method in the ```app/Provid
  * @var array
  */
 protected $subscribe = [
-    'LamaLama\LoginAttempts\Listeners\UserEventSubscriber',
+    'LamaLama\LoginAttempts\Listeners\AuthEventSubscriber',
 ];
 ```
 
