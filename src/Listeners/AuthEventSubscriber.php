@@ -77,12 +77,12 @@ class AuthEventSubscriber
     {
         $events->listen(
             'Illuminate\Auth\Events\Login',
-            'LamaLama\LoginAttempts\Listeners\UserEventSubscriber@recordSuccesfullLogin'
+            'LamaLama\LoginAttempts\Listeners\AuthEventSubscriber@recordSuccesfullLogin'
         );
 
         $events->listen(
             'Illuminate\Auth\Events\Failed',
-            'LamaLama\LoginAttempts\Listeners\UserEventSubscriber@recordFailedLogin'
+            'LamaLama\LoginAttempts\Listeners\AuthEventSubscriber@recordFailedLogin'
         );
     }
 }
