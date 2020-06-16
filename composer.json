@@ -1,7 +1,12 @@
 {
   "name": "lamalama/laravel-login-attempts",
-  "description": "Register unique login attempts and get notified of suspicious attempts",
-  "keywords": ["laravel", "auth", "authorization", "login"],
+  "description": "Register unique login attempts and get notified of suspicious attempts via email",
+  "keywords": [
+    "laravel",
+    "auth",
+    "authorization",
+    "login"
+  ],
   "type": "library",
   "homepage": "https://github.com/lamalamaNL/laravel-login-attempts",
   "license": "MIT",
