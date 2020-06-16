@@ -61,6 +61,16 @@ Clear all login attempts in the database
 php artisan login-attempts:clear
 ```
 
+Clear all login attempts in the database
+```bash
+php artisan login-attempts:clear
+```
+
+Clear all login succeeded attempts in the database
+```bash
+php artisan login-attempts:clear-succeeded
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
