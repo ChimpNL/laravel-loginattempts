@@ -35,6 +35,19 @@ php artisan vendor:publish --provider="LamaLama\LoginAttempts\LoginAttemptsServi
 
 ## Use
 
+Add the UserEventSubscriber to the ```subscribe()``` method in the ```app/Providers/EventServiceProvider.php``` file.
+
+```php
+/**
+ * The subscriber classes to register.
+ *
+ * @var array
+ */
+protected $subscribe = [
+    'LamaLama\LoginAttempts\Listeners\UserEventSubscriber',
+];
+```
+
 Clear all login attempts in the database
 ```bash
 php artisan login-attempts:clear
