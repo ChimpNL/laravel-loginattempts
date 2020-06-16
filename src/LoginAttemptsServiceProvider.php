@@ -4,6 +4,8 @@ namespace LamaLama\LoginAttempts;
 
 use Illuminate\Support\ServiceProvider;
 use LamaLama\LoginAttempts\Console\Commands\ClearLoginAttempts;
+use LamaLama\LoginAttempts\Console\Commands\ClearFailedLoginAttempts;
+use LamaLama\LoginAttempts\Console\Commands\ClearSucceededLoginAttempts;
 
 class LoginAttemptsServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,8 @@ class LoginAttemptsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ClearLoginAttempts::class,
+                ClearFailedLoginAttempts::class,
+                ClearSucceededLoginAttempts::class,
             ]);
         }
     }

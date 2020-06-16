@@ -3,6 +3,7 @@
 namespace LamaLama\LoginAttempts\Console\Commands;
 
 use Illuminate\Console\Command;
+use LamaLama\LoginAttempts\Models\LoginAttempt;
 
 class ClearSucceededLoginAttempts extends Command
 {
@@ -38,6 +39,9 @@ class ClearSucceededLoginAttempts extends Command
     public function handle()
     {
         $this->info('Started ClearSucceededLoginAttempts...');
+
+        LoginAttempt::whereEvent('succeeded')
+            ->delete();
 
         $this->info('Finished ClearSucceededLoginAttempts...');
     }
