@@ -2,9 +2,6 @@
 
 namespace LamaLama\LoginAttempts\Listeners;
 
-use App\Models\User;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use LamaLama\LoginAttempts\Models\LoginAttempt;
 use LamaLama\LoginAttempts\Notifications\LoginFromNewIpDetected;
 use Notification;
@@ -45,7 +42,7 @@ class UserEventSubscriber
 
         foreach ($emails as $email) {
             if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
-              continue;
+                continue;
             }
 
             Notification::route('mail', $email)->notify(
